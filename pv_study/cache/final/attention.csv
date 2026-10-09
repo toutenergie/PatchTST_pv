@@ -1,0 +1,13 @@
+channel,weight
+PV_total,0.09483538
+Thermal,0.08977636
+Taiba_wind,0.15138549
+Import_Manantali,0.10876313
+h_sin,0.04962216
+h_cos,0.054623734
+doy_sin,0.07833654
+doy_cos,0.095144786
+dow_sin,0.05832587
+dow_cos,0.054324236
+cos_zenith,0.082157284
+ghi_clear_sky,0.08270506

@@ -1,0 +1,21 @@
+input,share
+PV_total (past),0.24622716
+Thermal (past),0.021080019
+Taiba_wind (past),0.028894275
+Import_Manantali (past),0.020956673
+h_sin (past),0.0020635875
+h_cos (past),0.0021117525
+doy_sin (past),0.0048506255
+doy_cos (past),0.0049679116
+dow_sin (past),0.0034625642
+dow_cos (past),0.0035277854
+cos_zenith (past),0.0036161963
+ghi_clear_sky (past),0.0037472632
+h_sin (future),0.052714314
+h_cos (future),0.16803496
+doy_sin (future),0.0055947104
+doy_cos (future),0.020478569
+dow_sin (future),0.011716333
+dow_cos (future),0.0057528773
+cos_zenith (future),0.17097306
+ghi_clear_sky (future),0.21922942

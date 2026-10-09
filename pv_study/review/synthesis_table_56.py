@@ -1,0 +1,76 @@
+# -*- coding: utf-8 -*-
+"""Table 1 of the paper: synthesis of the 56 works of the review.
+
+Columns: number, short reference, axis, method / object, data or validation,
+contribution to the present study. Written from the records of the 303-item
+corpus (abstracts) and the titles; "n/a" when the record does not document
+the item.
+"""
+AXES = {
+    "A": "Stability and PV integration",
+    "B": "Senegal / Africa",
+    "C": "Reviews of RE forecasting",
+    "D": "DL for PV/RE forecasting",
+    "E": "PatchTST and Transformers",
+}
+
+# (no., short reference, axis, method/object, data/validation, contribution)
+TABLE = [
+    (1, "Shah et al., 2015", "A", "Review of stability challenges of large-scale PV", "Review", "Motivation: PV variability threatens stability"),
+    (2, "Kenyon et al., 2020", "A", "Review of stability/control with high inverter share", "Review", "Fast dynamics: need for anticipation"),
+    (3, "Seneviratne & Ozansoy, 2016", "A", "Frequency response to the loss of a unit", "Review", "Link PV/wind penetration – reserve"),
+    (4, "Cheng et al., 2020", "A", "Frequency control under low inertia", "Review", "Forecasting feeds frequency control"),
+    (5, "Johnson et al., 2019", "A", "Rotational inertia and reliability", "Simulation", "Operational issue at high variable share"),
+    (6, "Smith et al., 2022", "A", "Stability and resilience vs RE decentralisation", "Real data", "Daily oscillations of resilience"),
+    (7, "Xu et al., 2025", "A", "Coupled climate–energy model, cascading failures", "Real data (Puerto Rico)", "Threshold ≈ 45 % solar without storage"),
+    (8, "Beck & Hesse, 2007", "A", "Virtual synchronous machine", "Concept", "Control-side response (complementary)"),
+    (9, "Bevrani et al., 2014", "A", "Virtual synchronous generators", "Review", "Control-side response (complementary)"),
+    (10, "Che et al., 2025", "A", "Strategies to mitigate RE variability", "Review, 10 countries", "Forecasting = integration lever"),
+    (11, "Yuan et al., 2017", "A", "Benefit of forecasting and storage (isolated grid)", "Real data", "Economic value of forecasting"),
+    (12, "Abdoulaye et al., 2020", "B", "Impact of PV intermittency on frequency", "3 years of SENELEC measurements", "PV-related load shedding in Senegal"),
+    (13, "Sarr et al., 2018", "B", "Maximum PV penetration rate (PowerFactory)", "SENELEC simulation", "17.3 % MV / 16.4 % HV (2020)"),
+    (14, "Sarr et al., 2020", "B", "Optimisation of the PV penetration rate", "SENELEC simulation", "≈ 24 % with storage"),
+    (15, "Dieng et al., 2025", "B", "Voltage/frequency stability at 57–67 % inverters", "DIgSILENT simulation", "Constraint: loss < 5.2 % of power"),
+    (16, "Fall et al., 2024", "B", "Probabilistically sized reserves", "Real SENELEC data", "Reserve ↔ forecast uncertainty"),
+    (17, "Ba et al., 2025", "B", "Transmission congestion (OPF, N-1) 2025–2030", "Simulation", "Growing RE pressure on the grid"),
+    (18, "Ndiaye M. et al., 2025", "B", "Effect of 5 PV plants on voltage, flows, losses", "DIgSILENT simulation", "Same plants as the studied target"),
+    (19, "Faye et al., 2025a", "B", "Causality tests and PCA on stability", "SENELEC data", "PV is a determinant of frequency"),
+    (20, "Faye et al., 2025b", "B", "PCA on PV–wind frequency stability", "SENELEC data", "Total PV weighs on frequency"),
+    (21, "Bloomfield et al., 2022", "B", "Variability and weather drivers of solar/wind", "Reanalyses, Senegal/Kenya", "Stable Senegalese solar regime"),
+    (22, "Ndiaye F.A. et al., 2025", "B", "Actual performance and seasonal forecast of Diass", "Real data (23 MWp)", "Plant included in the target"),
+    (23, "Wang et al., 2019", "C", "Review of deep learning for RE forecasting", "Review", "Reference framework of architectures"),
+    (24, "Benti et al., 2023", "C", "Review of ML/DL for RE forecasting", "Review", "Obstacles: data, interpretability"),
+    (25, "Sharifzadeh et al., 2019", "C", "Comparison of ANN, SVR, GPR", "Comparative", "Importance of simple baselines"),
+    (26, "Aslam et al., 2021", "C", "Review of DL for load and RE (microgrids)", "Review", "Overview of architectures"),
+    (27, "Klaiber & Van Dinther, 2023", "C", "Systematic review of DL for variable RE", "Systematic review", "10 approaches, 3 domains"),
+    (28, "Khouili et al., 2025", "C", "Systematic review of DL for PV forecasting", "26 articles", "Mostly weather inputs; LSTM/CNN dominate"),
+    (29, "Alazemi et al., 2024", "C", "Review of ML for RE integration", "Systematic review", "LSTM and ensembles recommended"),
+    (30, "Devaraj et al., 2021", "C", "Review of big data and DL for energy forecasting", "Review", "Mean solar MAPE ≈ 10 %"),
+    (31, "Alsafrani et al., 2025", "D", "Dilated CNN + bidirectional residual LSTM", "Benchmark dataset", "Convolutional–recurrent hybrids"),
+    (32, "Gangwar et al., 2024", "D", "Improved RNN-GRU (uni/multivariate)", "Simulation", "Joint load/PV forecasting"),
+    (33, "Khan et al., 2022", "D", "Lightweight ESN-CNN with residual connections", "Benchmark datasets", "Concern for computational efficiency"),
+    (34, "Sankarananth et al., 2023", "D", "LSTM-RL, CNN-PSO (metaheuristics)", "Simulation", "Algorithmic hybridisation"),
+    (35, "Cheng et al., 2025", "D", "Spatio-temporal CNN-LSTM under stability constraint", "Real data", "−14.1 % RMSE vs LSTM"),
+    (36, "Abdelsattar et al., 2025", "D", "Comparison of 8 DL architectures", "4,200 real records", "Standard Transformer: R² = 0.07"),
+    (37, "Nie et al., 2023", "E", "PatchTST: patches + channel independence", "Benchmark datasets", "Base architecture of the study"),
+    (38, "Lv et al., 2026", "E", "PatchTST + anomaly detection + GAN", "6 PV plants", "PatchTST applied to short-term PV"),
+    (39, "Suresh, 2025", "E", "Benchmark of 5 Transformers + conformal inference", "5 kW rooftop, 5 years", "Cyclic encodings; PatchTST first"),
+    (40, "El-kenawy et al., 2026", "E", "PatchTST + feature selection (SMOA)", "Real data", "Choice of PatchTST inputs"),
+    (41, "Guo et al., 2025", "D", "Incremental PV model, catastrophic forgetting", "n/a", "Drift over time (rare in the corpus)"),
+    (42, "Lu et al., 2025", "E", "CT-PatchTST: channel–time dependencies", "Real data (Denmark)", "Challenges channel independence"),
+    (43, "Gao et al., 2024", "E", "ZS-DT-PatchTST (adaptive normalisation)", "Experimental data", "Non-stationarity → normalisation"),
+    (44, "Zhao et al., 2024", "E", "CausalPatchTST + causal selection", "2 wind farms", "−13.3 % RMSE vs PatchTST"),
+    (45, "Xu et al., 2025", "E", "PatchTST-GRU seq2seq + NWP refinement", "Wind farm", "Contribution of weather forecasts (absent here)"),
+    (46, "Zhang et al., 2024", "E", "Probabilistic QR-PatchTST", "ASU campus", "Probabilistic extension (perspective)"),
+    (47, "Spencer et al., 2025", "E", "Transfer learning, 3 Transformers", "16 buildings", "PatchTST transfers best"),
+    (48, "Yang et al., 2025", "E", "DiffTST: differential attention", "Benchmark datasets", "Generic improvement of PatchTST"),
+    (49, "Lin et al., 2024", "E", "CycleNet: learnable recurrent cycles", "Benchmark datasets", "Value of explicit cyclic information"),
+    (50, "Li et al., 2025", "D", "Neural controlled differential equations", "4 wind farms", "Correction of forecast lag"),
+    (51, "Mamyrbayev et al., 2025", "D", "RF, XGBoost, LSTM vs persistence", "30 sites, 6 months", "Explicit comparison with persistence"),
+    (52, "Liao et al., 2024", "C", "Probabilistic modelling and stochastic optimisation", "Review", "Uncertainty for operation"),
+    (53, "Anis et al., 2026", "E", "Explainable stability prediction (LIME)", "Simulated dataset", "Interpretability for operators"),
+    (54, "Babakhani et al., 2026", "E", "Explainable Informer mixture of experts", "3 thermal load datasets", "Explainable Transformers"),
+    (55, "Lin et al., 2025", "C", "Review: data-driven / mechanistic / hybrid models", "Review", "\"Black box\" limitation of models"),
+    (56, "Coulibaly et al., 2025", "B", "MLP for SENELEC PV–wind forecasting", "SENELEC data", "Only Senegalese predictive precedent"),
+]
+assert len(TABLE) == 56 and [t[0] for t in TABLE] == list(range(1, 57))
